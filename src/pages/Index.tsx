@@ -1,13 +1,21 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { AuthProvider } from '@/contexts/AuthContext';
+import { RoomsProvider } from '@/contexts/RoomsContext';
+import { LocationProvider } from '@/contexts/LocationContext';
+import Layout from '@/components/Layout';
+import SchoolMap from '@/components/SchoolMap';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <AuthProvider>
+      <RoomsProvider>
+        <LocationProvider>
+          <Layout>
+            <SchoolMap />
+          </Layout>
+        </LocationProvider>
+      </RoomsProvider>
+    </AuthProvider>
   );
 };
 
